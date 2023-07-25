@@ -1,0 +1,14 @@
+  <div class="card bg-primary text-white mb-4">
+      <div class="card-body">
+        <p>{{journal.title}}</p>
+        <p class="small text-white stretched-link">{{author}}<br>{{journal.publishedDate.toString() | dateFormater}}</p>
+      </div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+          <a
+            class="small text-white stretched-link"
+            (click)="handleViewJournal()"
+            >View Journal
+          </a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+      </div>
+  </div>

@@ -1,0 +1,15 @@
+<header class="m-3">
+  <h1>{{ researcher?.name }}</h1>
+  <a
+    *ngIf="
+      loggedUserService.loggedUser.researcherId == researcher?.researcherId
+    "
+    class="btn btn-primary"
+    [routerLink]="['../../journalupload']"
+    >Upload new journal</a
+  >
+  <div *ngIf="researcher != undefined">
+    <app-follow-btn [researcher]="researcher"></app-follow-btn>
+  </div>
+</header>
+<app-feed [JorunalItems]="journalItems"></app-feed>

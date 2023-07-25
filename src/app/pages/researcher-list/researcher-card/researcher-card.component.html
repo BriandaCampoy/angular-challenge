@@ -1,0 +1,14 @@
+<div class="card mb-4">
+  <div class="card-body ">
+    <p>{{researcher.name}}</p>
+    <app-follow-btn [researcher]="researcher"></app-follow-btn>
+  </div>
+  <div class="card-footer d-flex align-items-center justify-content-between">
+      <a
+        [routerLink]="['../researcher/profile', researcher.researcherId]"
+        class="card-link"
+        >See profile
+      </a>
+      <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+  </div>
+</div>

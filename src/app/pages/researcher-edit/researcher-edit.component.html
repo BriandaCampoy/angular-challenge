@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4">Researcher</h3>
+        </div>
+        <div class="card-body">
+          <form #researcherForm="ngForm" (submit)="handleSubmit()">
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-floating">
+                  <input
+                    class="form-control"
+                    id="inputName"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Enter your name"
+                    [(ngModel)]="newUserData.name"
+                  />
+                  <label for="inputTitle">Name: </label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input
+                    class="form-control"
+                    id="inputOldPassword"
+                    type="password"
+                    required
+                    name="oldPassword"
+                    [(ngModel)]="newUserData.password"
+                    placeholder="Enter your current password:"
+                  />
+                  <label for="inputOldPassword">Current password:</label>
+                </div>
+                <div [style.opacity]="passwordError?1:0" class="text-danger mb-3">¡Incorrect password!</div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="form-floating">
+                  <input
+                    class="form-control"
+                    id="inputNewPassword"
+                    type="password"
+                    required
+                    name="newPassword"
+                    [(ngModel)]="newUserData.newPassword"
+                    placeholder="Enter your new password:"
+                  />
+                  <label for="inputNewPassword">New password</label>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 mb-0">
+              <div class="d-grid">
+                <button [disabled]="researcherForm.invalid" class="btn btn-primary btn-block" type="submit">
+                  Update
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

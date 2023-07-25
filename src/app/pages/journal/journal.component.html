@@ -1,0 +1,18 @@
+<header class="m-3">
+  <h2>{{journal.title}}</h2>
+  <div>
+    <a [routerLink]="['../../../researcher/profile', journal!.researcherId]">by {{researcher.name}}</a>
+    <h6> {{journal!.publishedDate.toString() | dateFormater}}</h6>
+  </div>
+</header>
+<div class="d-flex gap-3 m-2" *ngIf="loggedUserService.loggedUser.researcherId===researcher.researcherId">
+<a [routerLink]="['../../edit/', journal.journalId]" class="btn btn-primary">Edit Journal</a>
+<button class="btn btn-danger" (click)="openConfirmationModal()">Delete</button>
+</div>
+<div class="card mb-4">
+  <pdf-viewer [src]="journal!.url"
+  [render-text]="true"
+  [original-size]="false"
+  style="width: 100%; height:80vh"
+  ></pdf-viewer>
+</div>

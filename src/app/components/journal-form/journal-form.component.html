@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4">{{Actions[formAction]}}</h3>
+        </div>
+        <div class="card-body">
+          <form #journalForm="ngForm" (submit)="handleSubmit()">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="form-floating mb-3 mb-md-0">
+                  <input
+                    class="form-control"
+                    id="inputTitle"
+                    type="text"
+                    name="title"
+                    required
+                    placeholder="Enter the title"
+                    [(ngModel)]="journal.title"
+                  />
+                  <label for="inputTitle">Title: </label>
+                </div>
+              </div>
+              <div class="col-md-6 ">
+                <div class="form-floating">
+                  <input
+                  class="form-control"
+                  id="inputJournalFile"
+                  type="file"
+                  required
+                  name="file"
+                  accept=".pdf"
+                  placeholder="Upload journal file"
+                  (change)="onFileSelected($event)"
+                  />
+                  <label for="inputJournalFile">Journal File:</label>
+                </div>
+                <div *ngIf="formAction==1" class="">
+                  <div class="form-check">
+                    <input
+                      id="inputKeepOriginal"
+                      type="checkbox"
+                      name="keepOriginal"
+                      [(ngModel)]="keepOriginal"
+                    />
+                    <label for="inputKeepOriginal"> Keep original file:</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 mb-0">
+              <div class="d-grid" >
+                <button [disabled]="journalForm.invalid || (journalFile===undefined && !keepOriginal && formAction==1)" class="btn btn-primary btn-block" type="submit">Upload</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

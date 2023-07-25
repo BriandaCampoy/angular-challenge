@@ -1,0 +1,9 @@
+<button
+  *ngIf="loggedUserService.loggedUser.researcherId!=researcher?.researcherId"
+  class="btn"
+  [class.btn-primary]="isFollower===undefined"
+  [class.btn-outline-primary]="isFollower!==undefined"
+  (click)=" handleFollowBtn()"
+  >
+  {{isFollower!==undefined?'Unfollow':'Follow'}}
+</button>
